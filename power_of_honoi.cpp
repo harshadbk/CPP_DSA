@@ -7,7 +7,7 @@ void towerofhonoi(int num,char from_rod,char to_rod,char auxroad){
       return;
    }
    towerofhonoi(num-1,from_rod,auxroad,to_rod);
-   cout << "move disk "<<num<<" from"<<from_rod << " to "<<to_rod<<endl;
+   cout << "move disk "<<num<<" from "<<from_rod << " to "<<to_rod<<endl;
    towerofhonoi(num-1,auxroad,to_rod,from_rod);
 };
 
