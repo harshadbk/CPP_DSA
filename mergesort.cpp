@@ -34,7 +34,7 @@ void merge(int arr[], int st, int mid, int ed)
 
 void merge_sort_algorithm(int arr[], int st, int ed)
 {
-    if (st < ed)   // ✅ base condition fixed
+    if (st < ed) 
     {
         int mid = (st + ed) / 2;
 
