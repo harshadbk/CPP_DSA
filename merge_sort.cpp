@@ -1,4 +1,5 @@
 #include <iostream>
+#include <omp.h>
 using namespace std;
 
 void mergesort(int arr[], int st, int mid, int ed)
@@ -41,8 +42,17 @@ void merge_sort_algo(int arr[], int st, int ed)
     if (st < ed)
     {
         int mid = (st + ed) / 2;
-        merge_sort_algo(arr, st, mid);
-        merge_sort_algo(arr, mid + 1, ed);
+#pragma omp parallel sections
+        {
+#pragma omp section
+            {
+                merge_sort_algo(arr, st, mid);
+            }
+#pragma omp section
+            {
+                merge_sort_algo(arr, mid + 1, ed);
+            }
+        }
         mergesort(arr, st, mid, ed);
     }
 }
